@@ -1,0 +1,43 @@
+﻿@using HosptialMangement1.Models
+@model List<Patient>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAllPatients</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td>Pid</td>
+                <td>Fname</td>
+                <td>Lname</td>
+                <td>Age</td>
+                <td>Bg</td>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Pid</td>
+                    <td>@item.Fname</td>
+                    <td>@item.Lname</td>
+                    <td>@item.Age</td>
+                    <td>@item.Bg</td>
+                    <td>@Html.ActionLink("Delete","deletepatient",new { id = item.Pid})</td>
+                    <td>@Html.ActionLink("Edit","updatepatient",new { id = item.Pid})</td>
+                </tr>
+
+            }
+            <tr>
+                <td>
+                    @Html.ActionLink("Create","Createpatients")
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+</html>
